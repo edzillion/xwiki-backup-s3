@@ -1,6 +1,6 @@
 # xwiki-backup-s3
 
-[xwiki-backup-s3] is a simple, automated, backup (and restore) [docker] container for a [xwiki] blog. It supports xwiki configured with mysql (but postgres support would be trivial to add). 
+[xwiki-backup-s3] is a simple, automated, backup (and restore) [docker] container for [xwiki]. It supports xwiki configured with mysql (but postgres support would be trivial to add). 
 
 By default it will create a backup of the xwiki folder and the database daily.
 
@@ -60,7 +60,7 @@ docker run -d --name xwiki-backup-s3 --net=xwiki-nw -v xwiki_data:/data --link m
 That's it! This will create and run a container named 'xwiki-backup-s3' which will backup your files and db to s3 every day.
 
 ### Advanced Configuration
-xwiki-backup has a number of options which can be configured as you need. 
+xwiki-backup-s3 has a number of options which can be configured as you need. 
 
 | Environment Variable  | Default       | Meaning           |
 | --------------------- | ------------- | ----------------- | 
@@ -84,8 +84,6 @@ docker run -d --name xwiki-backup-s3 --net=xwiki-nw -v xwiki_data:/data --link m
     edzillion/xwiki-backup-s3 s3://your-bucket-here/folder
 ````
 
-> This example is for xwiki using sqlite. If you're using mysql just add the linked mysql containers as described above.
-
 ### Other Info
 
 When using mysql, the backup/restore is handled using mysqldump. You should use InnoDB tables for [online backup].
@@ -95,5 +93,4 @@ When using mysql, the backup/restore is handled using mysqldump. You should use 
  [xwiki]: https://xwiki.org/
  [ghost-backup]: https://github.com/bennetimo/ghost-backup
  [docker-s3-volume]: https://github.com/elementar/docker-s3-volume
- [configuration]: http://support.xwiki.org/config/#database
  [online backup]: https://dev.mysql.com/doc/refman/5.5/en/mysqldump.html
