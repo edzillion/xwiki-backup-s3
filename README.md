@@ -37,10 +37,10 @@ Run xwiki on port 8080 and set it to use the xwiki_data volume:
 
 ````
 docker run -d --net=xwiki-nw --name xwiki -p 8080:8080 -v xwiki_data:/usr/local/xwiki \
-    -e DB_USER=xwiki 
-    -e DB_PASSWORD=xwiki 
-    -e DB_DATABASE=xwiki 
-    -e DB_HOST=mysql-xwiki 
+    -e DB_USER=xwiki \
+    -e DB_PASSWORD=xwiki \
+    -e DB_DATABASE=xwiki \
+    -e DB_HOST=mysql-xwiki \
     xwiki:mysql-tomcat
 ````
 
